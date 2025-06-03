@@ -2,6 +2,8 @@
 
 //генерация галереи
 ;(function(){
+    if (document.querySelector('.gallery-visual')){
+   
     const btn = document.querySelector('.generate');
     const visual = document.querySelector('.gallery-visual');
     const textGen = document.querySelector('.gallery-tags');
@@ -196,4 +198,92 @@ p {
         textGen.textContent = result;
 
     });
-})()
+}})()
+
+;(function(){
+    if (document.querySelector('.rutube-gen')){
+    const btn = document.querySelector('.rutube-gen__generate');
+    const visual = document.querySelector('.rutube-gen__visual');
+    const code = document.querySelector('.rutube-gen__code');
+
+    btn.addEventListener('click', function(){
+        const link = document.querySelector('.rutube-gen__link').value;
+        const player = document.querySelector('.rutube-gen__player-code').value;
+
+        let player_link = player.match(/\"https:.+?\"/)
+
+        let result = `
+        <style>
+        /* отступ абзаца */
+        p {
+            text-indent:3ch;
+        }
+        
+        /* видео */
+        .rutube-video {
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        width: 90%;
+        row-gap: 20px;
+        margin: 0 auto;
+    }
+
+    .rutube-video__video {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16/9;
+        border-radius: 5px;
+        box-shadow: 0 0 2px 2px gray;
+    }
+
+    .rutube-video__link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        max-width: 340px;
+        width: fit-content;
+        padding: 10px;
+        background-image: linear-gradient(to bottom, #071d32, #172a3f, #26384d, #36475b, #455669);
+        box-shadow: 2px 2px 4px 0 gray;
+        font-size: 16px;
+        font-weight: 700;
+        color: #fff;
+        letter-spacing: 2px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .rutube-video__link > a {
+        all:unset;
+    }
+
+    .rutube-video__link:hover {
+        box-shadow: 4px 4px 4px 0 gray;
+        transform: scale();
+    }
+
+    @media (max-width: 768px){
+        .rutube-video__link {
+            padding: 7px;
+            font-size: 10px;
+        }
+    }
+    </style>
+    
+    <div class="rutube-video">
+        <object class="rutube-video__video" data=${player_link[0]}
+            type="video/mp4"></object>
+        <div class="rutube-video__link">
+            <a href="${link}"
+                target="_blank">ПОЛНОЭКРАННАЯ ВЕРСИЯ</a>
+        </div>
+    </div>
+    `
+    
+    visual.innerHTML = result;
+    code.textContent = result;
+
+    });
+}})()

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <script src="./app.js" defer></script>
+    <title>Rutube Generator</title>
+</head>
+<body>
+    <div class="rutube-gen">
+        <label for="direct-link">Ссылка на видео</label>
+        <input type="text" name="direct-link" value="" class="rutube-gen__link">
+        <label for="player-link">Код вставки плеера</label>
+        <input type="text" name="player-link" value="" class="rutube-gen__player-code">
+        <button class="rutube-gen__generate">Сгенерировать</button>
+        <div class="rutube-gen__visual"></div>
+        <div class="rutube-gen__code"></div>
+    </div>
+</body>
+</html>
