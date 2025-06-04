@@ -45,7 +45,7 @@ p {
 
 .ch-gallery__slide {
     width: 300px;
-    height: 200px;
+    height: 300px;
     box-shadow: 0 0 4px 4px gray;
     border-radius: 5px;
 }
@@ -200,6 +200,7 @@ p {
     });
 }})()
 
+//генерация видео rutube
 ;(function(){
     if (document.querySelector('.rutube-gen')){
     const btn = document.querySelector('.rutube-gen__generate');

@@ -80,7 +80,7 @@ p {
 
 .ch-gallery__slide {
     width: 300px;
-    height: 200px;
+    height: 300px;
     box-shadow: 0 0 4px 4px gray;
     border-radius: 5px;
 }
@@ -100,6 +100,7 @@ p {
     transform: scale(1,1);
     transition: transform 0.5s ease;
 }
+
 
 .ch-gallery__img:hover {
     transform: scale(1.05, 1.05);
