@@ -2,6 +2,10 @@
 
 //генерация галереи
 ;(function(){
+
+    const siteAddr = 'chernyshev.mskobr.ru';
+    const fullAddrToCloseIcon = 'https://chernyshev.mskobr.ru/files/FOTO/Galley/Files_for_gallery/close_icon.png';
+
     if (document.querySelector('.gallery-visual')){
    
     const btn = document.querySelector('.generate');
@@ -166,7 +170,7 @@ p {
         for (let i = 1; i <= count; i++){
             result += `<div class="ch-gallery__slide">
                 <a class="ch-gallery__link" href="#popup_${i}">
-                    <img src="https://chernyshev.mskobr.ru/${folder}image0${String(i).padStart(2, '0')}.jpg"
+                    <img src="https://${siteAddr}/${folder}image0${String(i).padStart(2, '0')}.jpg"
                         alt="" class="ch-gallery__img" title="Нажмите для увеличения">
                 </a>
             </div>`
@@ -183,10 +187,10 @@ p {
             <div class="ch-gallery__popup-body">
                 <div class="ch-gallery__popup-content">
                     <a href="#close" class="ch-gallery__popup-close">
-                        <img src="https://chernyshev.mskobr.ru/files/FOTO/Galley/Files_for_gallery/close_icon.png"
+                        <img src="${fullAddrToCloseIcon}"
                             alt="" class="ch-gallery__close-btn">
                     </a>
-                    <img src="https://chernyshev.mskobr.ru/${folder}/image0${String(i).padStart(2, '0')}.jpg"
+                    <img src="https://${siteAddr}/${folder}/image0${String(i).padStart(2, '0')}.jpg"
                         alt="" class="ch-gallery__popup-img">
                 </div>
             </div>
