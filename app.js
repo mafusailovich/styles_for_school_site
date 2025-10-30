@@ -15,6 +15,13 @@
     btn.addEventListener('click', ()=>{
         const folder = document.querySelector('.source').value;
         const count = Number(document.querySelector('.count').value);
+        const picStart = Number(document.querySelector('.picStart').value);
+        let picEnd = Number(document.querySelector('.picEnd').value);
+
+        //если не указано количество картинок, то будет до последней
+        if (picEnd === 0){
+            picEnd = count;
+        }
 
         let result = `
         <style>
@@ -167,7 +174,7 @@ p {
         <div class="ch-gallery__slides">
         `
 
-        for (let i = 1; i <= count; i++){
+        for (let i = picStart; i <= picEnd; i++){
             result += `<div class="ch-gallery__slide">
                 <a class="ch-gallery__link" href="#popup_${i}">
                     <img src="https://${siteAddr}/${folder}image0${String(i).padStart(2, '0')}.jpg"
@@ -180,7 +187,7 @@ p {
         <div class="ch-gallery__title">(нажмите на картинку для увеличения)</div>
         `;
         
-        for (let i = 1; i <= count; i++){
+        for (let i = picStart; i <= picEnd; i++){
             result += `
         <div id="popup_${i}" class="ch-gallery__popup">
             <a href="#close" class="ch-gallery__popup-area">.</a>
