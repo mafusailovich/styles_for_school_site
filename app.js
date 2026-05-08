@@ -30,6 +30,10 @@ p {
     text-indent:3ch;
  }
 
+a {
+    font-size:16px;
+}
+
 /* стили для галереи */
 .ch-gallery {
     padding: 10px;
@@ -59,6 +63,12 @@ p {
     height: 300px;
     box-shadow: 0 0 4px 4px gray;
     border-radius: 5px;
+    transform: scale(1,1);
+    transition: transform 0.5s ease;
+}
+
+.ch-gallery__slide:hover {
+    transform: scale(1.05, 1.05);
 }
 
 .ch-gallery__link {
@@ -77,9 +87,7 @@ p {
     transition: transform 0.5s ease;
 }
 
-.ch-gallery__img:hover {
-    transform: scale(1.05, 1.05);
-}
+
 
 /* стили popup */
 .ch-gallery__fixed-obj {
