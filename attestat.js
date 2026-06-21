@@ -2,11 +2,14 @@
 
 ;(function(){
     //получаем данные для шаблона титульного листа аттестата
-    const cls1 = '.LgumFoeZTm6QeyCBeoDT'; //идентификаторы тегов блоков
-    const cls2 = '.XzrauMnb2_dW7u6NikiT'; 
+    //const cls1 = '.LgumFoeZTm6QeyCBeoDT'; //идентификаторы тегов блоков
+    //const cls2 = '.XzrauMnb2_dW7u6NikiT';
+    const cls1 = '.m3-uQRtA';
+    const cls2 = '.nmdX1X-0';
     if (document.querySelector(cls1) && document.querySelector(cls2)){
         const saveAtBlocks1 = document.querySelectorAll(cls1);
-        const saveAtBlocks2 = document.querySelectorAll(cls2);    
+        const saveAtBlocks2 = document.querySelectorAll(cls2);
+
 
     //генерируем массив css свойств для полей
     const saveAtBlocks1Css= [];
@@ -19,15 +22,16 @@
     }
 
     console.log('Для применения шаблона, скопируйте код ниже в консоль и нажмите Enter');
-    
+
     console.log(`
     //сохраненные значения стилей для передвигаемых блоков
     const saveAtBlocks1Css = [${saveAtBlocks1Css}];
-    const saveAtBlocks2Css = [${saveAtBlocks2Css}];    
-    
+    const saveAtBlocks2Css = [${saveAtBlocks2Css}];
+
     //находим новые значения параметров
-    const newAtBlocks1 = document.querySelectorAll('.LgumFoeZTm6QeyCBeoDT');
-    const newAtBlocks2 = document.querySelectorAll('.XzrauMnb2_dW7u6NikiT');
+    const newAtBlocks1 = document.querySelectorAll('.m3-uQRtA');
+    const newAtBlocks2 = document.querySelectorAll('.nmdX1X-0');
+    const qrCode = document.getElementById("qr-code-block-svg").querySelector('svg');
 
     //заменяем стили значениями из ранее сохраненных
     console.log(newAtBlocks1.length,saveAtBlocks1Css.length,newAtBlocks2.length, saveAtBlocks2Css.length)
@@ -40,14 +44,13 @@
         for (let i = 0; i < newAtBlocks2.length; i++){
             newAtBlocks2[i].style.cssText = saveAtBlocks2Css[i];
         }
+        qrCode.setAttribute('width', '65');
+        qrCode.setAttribute('height', '65');
     }
     `)
     } else {
         console.log('Нет таких элеметнов')
     }
-
-    
-     
 })()
 
 
@@ -64,19 +67,19 @@
             }
         }
     }
-    
+
     const marks = document.querySelectorAll('.cert-print-marks');
     const marksPos = [];
     for (let i = 0; i < marks.length; i++){
         marksPos.push(`'${marks[i].style.cssText}'`);
     }
-    
+
     //выводим код для сохранения
     console.log(`
     //сохраненные значения стилей для передвигаемых блоков
     const saveSpansPos = [${spansPos}];
-    const saveMarksPos = [${marksPos}];    
-    
+    const saveMarksPos = [${marksPos}];
+
     //заменим
     let j = 0;
     const newSpans = document.querySelectorAll('span.ng-star-inserted');
@@ -88,7 +91,7 @@
             }
         }
     }
-    
+
     const newMarks = document.querySelectorAll('.cert-print-marks');
     for (let i = 0; i < newMarks.length; i++){
         newMarks[i].style.cssText = saveMarksPos[i];
